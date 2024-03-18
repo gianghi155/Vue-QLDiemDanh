@@ -1,9 +1,28 @@
+<script>
+import Sidebar from '@/components/sidebar/SidebarLeft'
+import { sidebarWidth } from '@/components/sidebar/state'
+
+
+export default {
+  components: { Sidebar },
+  setup() {
+    return { sidebarWidth }
+  },
+  data() {
+    return {
+      
+    };
+  }
+}
+</script>
+
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app">
+    <Sidebar />
+    <div :style="{ 'margin-left': sidebarWidth }">
+      <router-view />
+    </div>
+  </div>
 </template>
 
 <style>
@@ -15,16 +34,16 @@
   color: #2c3e50;
 }
 
-nav {
+#nav {
   padding: 30px;
 }
 
-nav a {
+#nav a {
   font-weight: bold;
   color: #2c3e50;
 }
 
-nav a.router-link-exact-active {
+#nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
